@@ -11,12 +11,12 @@ public class TestForExchanedButton {
         driver.get("https://www.skyscanner.ru");
 
         WebElement originSearch = driver.findElement(By.id("fsc-origin-search"));
-        originSearch.sendKeys("Минкс(Любой)");
+        originSearch.sendKeys("Минск (Любой)");
 
         WebElement destinationSearch = driver.findElement(By.id("fsc-destination-search"));
-        destinationSearch.sendKeys("Киев(Любой)");
+        destinationSearch.sendKeys("Киев (Любой)");
 
-        WebElement exchangedButton = driver.findElement(By.xpath("//*[@id='flights-search-controls-root']"));
+        WebElement exchangedButton = driver.findElement(By.xpath("//*[@id='flights-search-controls-root']/div/div/form/div[2]/div[1]/div[2]/div/button"));
         exchangedButton.click();
 
         Thread.sleep(5000);
