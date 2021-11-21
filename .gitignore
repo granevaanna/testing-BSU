@@ -2,5 +2,5 @@
 *.log
 /target
 /bin
-.idea
+.idea/
 .iml
