@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SkyscannerHomePage {
     private WebDriver driver;
-    private String HOMEPAGE = "https://www.skyscanner.ru";
+    private String HOMEPAGE_URL = "https://www.skyscanner.ru";
 
     @FindBy(xpath = "//*[@id='skhot']/span")
     private WebElement hotelButton;
@@ -16,7 +16,7 @@ public class SkyscannerHomePage {
     }
 
     public SkyscannerHomePage openHomePage() {
-        driver.get(HOMEPAGE);
+        driver.get(HOMEPAGE_URL);
         return this;
     }
 

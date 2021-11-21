@@ -4,7 +4,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SkyscannerHotelPage {
     private WebDriver driver;
-    private String HOTELPAGE = "https://www.skyscanner.ru/hotels";
+    private String HOTELPAGE_URL = "https://www.skyscanner.ru/hotels";
 
     public SkyscannerHotelPage(WebDriver driver) {
         this.driver = driver;
@@ -12,7 +12,7 @@ public class SkyscannerHotelPage {
     }
 
     public SkyscannerHotelPage openHotelPage() {
-        driver.get(HOTELPAGE);
+        driver.get(HOTELPAGE_URL);
         return this;
     }
 
