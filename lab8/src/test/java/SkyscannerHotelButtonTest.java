@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import javax.lang.model.element.Element;
 
-public class HotelButtonTest {
+public class SkyscannerHotelButtonTest {
 
     private WebDriver driver;
     private WebDriver flighPage;
