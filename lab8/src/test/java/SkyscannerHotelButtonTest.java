@@ -14,8 +14,6 @@ import javax.lang.model.element.Element;
 public class SkyscannerHotelButtonTest {
 
     private WebDriver driver;
-    private WebDriver flighPage;
-    private WebDriver hotelPage;
 
     @BeforeTest (alwaysRun = true)
     public void browserSetup(){
@@ -24,16 +22,14 @@ public class SkyscannerHotelButtonTest {
 
     @Test
     public void goToTheHotelPage() throws InterruptedException {
-        flighPage = driver;
-        flighPage.get("https://www.skyscanner.ru");
+        SkyscannerHomePage homePage = new SkyscannerHomePage(driver);
+        homePage.openHomePage();
+        homePage.openHotelPage();
 
-        WebElement hotelButton =flighPage.findElement(By.xpath("//*[@id='skhot']/span"));
-        hotelButton.click();
+        SkyscannerHotelPage hotelPage = new SkyscannerHotelPage(driver);
+        hotelPage.openHotelPage();
 
-        hotelPage = driver;
-        hotelPage.get("https://www.skyscanner.ru/hotels");
-
-        Assert.assertEquals(flighPage.getCurrentUrl(), hotelPage.getCurrentUrl());
+        Assert.assertEquals(homePage.getCurrentUrl(), hotelPage.getCurrentUrl());
     }
 
     @AfterMethod(alwaysRun = true)
