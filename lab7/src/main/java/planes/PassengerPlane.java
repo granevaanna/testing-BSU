@@ -1,8 +1,9 @@
-package Planes;
+package planes;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
-public class PassengerPlane extends Plane{
+public class PassengerPlane extends Plane {
     private int passengersCapacity;
 
     public PassengerPlane(String model,
@@ -14,15 +15,12 @@ public class PassengerPlane extends Plane{
         this.passengersCapacity = passengersCapacity;
     }
 
-    public int getPassengersCapacity() {
-        return passengersCapacity;
+    public void setPassengersCapacity(int passengersCapacity) {
+        this.passengersCapacity = passengersCapacity;
     }
 
-    @Override
-    public String toString() {
-        return super.toString().replace("}",
-                ", passengersCapacity=" + passengersCapacity +
-                '}');
+    public int getPassengersCapacity() {
+        return passengersCapacity;
     }
 
     @Override
@@ -37,5 +35,12 @@ public class PassengerPlane extends Plane{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), passengersCapacity);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString().replace("}",
+                ", passengersCapacity=" + passengersCapacity +
+                        '}');
     }
 }
