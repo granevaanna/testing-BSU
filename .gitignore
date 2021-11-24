@@ -2,7 +2,6 @@
 *.log
 /target
 /bin
-.idea/
 .iml
 .idea
 .DS_Store
