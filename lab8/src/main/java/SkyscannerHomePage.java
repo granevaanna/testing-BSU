@@ -2,6 +2,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
 
 public class SkyscannerHomePage {
     private WebDriver driver;
@@ -17,6 +22,10 @@ public class SkyscannerHomePage {
 
     public SkyscannerHomePage openHomePage() {
         driver.get(HOMEPAGE_URL);
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(500))
+                .ignoring(NoSuchElementException.class);
         return this;
     }
 
