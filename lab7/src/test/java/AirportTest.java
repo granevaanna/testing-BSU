@@ -44,7 +44,7 @@ public class AirportTest {
     );
 
     @Test
-    public void testGetTransportMilitaryPlanes() {
+    public void GetTransportMilitaryPlanesTest() {
         Airport airport = new Airport(planes);
         List<MilitaryPlane> transportMilitaryPlanes = airport.getTransportMilitaryPlanes();
         Assert.assertTrue(transportMilitaryPlanes.stream()
@@ -52,13 +52,13 @@ public class AirportTest {
     }
 
     @Test
-    public void testGetPassengerPlaneWithMaxCapacity() {
+    public void GetPassengerPlaneWithMaxCapacityTest() {
         Airport airport = new Airport(planes);
         Assert.assertEquals(planeWithMaxPassengerCapacity, airport.getPassengerPlaneWithMaxPassengersCapacity());
     }
 
     @Test
-    public void testSortByMaxCapacity() {
+    public void SortByMaxCapacityTest() {
         Airport airport = new Airport(planes);
         airport.sortByMaxLoadCapacity();
         List<? extends Plane> planesSortedByMaxLoadCapacity = airport.getPlanes();
@@ -68,13 +68,13 @@ public class AirportTest {
     }
 
     @Test
-    public void testGetBomberMilitaryPlanes() {
+    public void GetBomberMilitaryPlanesTest() {
         Airport airport = new Airport(planes);
         Assert.assertEquals(bomberMilitaryPlanes, airport.getBomberMilitaryPlanes());
     }
 
     @Test
-    public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified() {
+    public void ExperimentalPlanesHasClassificationLevelHigherThanUnclassifiedTest() {
         Airport airport = new Airport(planes);
         Assert.assertEquals(experimentalPlanes, airport.getExperimentalPlanes());
     }
