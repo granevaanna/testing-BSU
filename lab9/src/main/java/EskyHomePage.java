@@ -13,28 +13,15 @@ import java.util.NoSuchElementException;
 
 public class EskyHomePage {
     private WebDriver driver;
-    private String HOMEPAGE_URL = "https://www.esky.com";
+    private String HOMEPAGE_URL = "https://esky.mozio.com/en-us/";
 
-    @FindBy(xpath = "//*[@id='departureRoundtrip0']")
-    private WebElement DepartFromInput;
+    @FindBy(xpath = "//*[@id='start_address']")
+    private WebElement firstInput;
 
-    @FindBy(xpath = "//*[@id='arrivalRoundtrip0']")
-    private WebElement flyingToInput;
+    @FindBy(xpath = "//*[@id='end_address']")
+    private WebElement secondInput;
 
-    @FindBy(xpath = "//*[@id='departureDateRoundtrip0']")
-    private WebElement departureCalendarButton;
-
-    @FindBy(xpath = "//*[@id='ui-datepicker-div']/table/tbody/tr[4]/td[4]/a")
-    private WebElement departureDateButton;
-
-
-    @FindBy(xpath = "//*[@id='departureDateRoundtrip1']")
-    private WebElement flyingCalendarButton;
-
-    @FindBy(xpath = "//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[5]")
-    private WebElement flyingDateButton;
-
-    @FindBy(xpath = "//*[@id='multiQsfFlights']/form/section[2]/div[2]/fieldset[2]/button")
+    @FindBy(xpath = "//*[@id='container']")
     private WebElement searchButton;
 
     public EskyHomePage(WebDriver driver) {
@@ -51,35 +38,16 @@ public class EskyHomePage {
         return this;
     }
 
-    public EskyHomePage inputPlaceOfDeparture(String placeOfDeparture) {
-        DepartFromInput.sendKeys(placeOfDeparture);
+    public EskyHomePage inputFirst(String placeOfDeparture) {
+        firstInput.sendKeys(placeOfDeparture);
         return this;
     }
 
-    public EskyHomePage inputPlaceOfArrival(String placeOfArrival) {
-        flyingToInput.sendKeys(placeOfArrival);
+    public EskyHomePage inputSecond(String placeOfDeparture) {
+        secondInput.sendKeys(placeOfDeparture);
         return this;
     }
 
-    public EskyHomePage clickToInputDepartureDate() {
-        departureCalendarButton.click();
-        return this;
-    }
-
-    public EskyHomePage selectDepartureDate() {
-        departureDateButton.click();
-        return this;
-    }
-
-    public EskyHomePage clickToInputReturnDate() {
-        flyingCalendarButton.click();
-        return this;
-    }
-
-    public EskyHomePage selectReturnDate() {
-        flyingDateButton.click();
-        return this;
-    }
     public EskyHomePage clickOnSearchButton() {
         searchButton.click();
         return this;

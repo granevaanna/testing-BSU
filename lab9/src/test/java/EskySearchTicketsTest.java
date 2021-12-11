@@ -1,7 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
@@ -12,25 +11,20 @@ public class EskySearchTicketsTest {
 
     @BeforeTest (alwaysRun = true)
     public void browserSetup(){
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
-//        driver = new ChromeDriver(options);
-        driver = new SafariDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
+        driver = new ChromeDriver(options);
     }
 
     @Test
     public void searchTicketsTest() throws InterruptedException {
         EskyHomePage homePage = new EskyHomePage(driver);
         homePage.openHomePage();
-        homePage.inputPlaceOfDeparture("London - All Airports, England, United Kingdom (LON)");
-        homePage.inputPlaceOfArrival("New York - All Airports, New York, United States of America (NYC)");
-        homePage.clickToInputDepartureDate();
-        homePage.selectDepartureDate();
-        homePage.clickToInputReturnDate();
-        homePage.selectReturnDate();
+        homePage.inputFirst("London, UK");
+        homePage.inputSecond("Newark, UK");
         homePage.clickOnSearchButton();
 
-        EskyHotelPage hotelPage = new EskyHotelPage(driver);
+        EskyResultPage hotelPage = new EskyResultPage(driver);
         hotelPage.openHotelPage();
 
         Assert.assertEquals(homePage.getCurrentUrl(), hotelPage.getCurrentUrl());
