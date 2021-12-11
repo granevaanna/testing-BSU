@@ -30,7 +30,7 @@ public class EskyHomePage {
     @FindBy(xpath = "//*[@id='departureDateRoundtrip1']")
     private WebElement returnDateInput;
 
-    @FindBy(xpath = "//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[5]/a")
+    @FindBy(xpath = "//*[@id='ui-datepicker-div']")
     private WebElement returnDateButton;
 
     @FindBy(xpath = "//*[@id='multiQsfFlights']/form/section[2]/div[2]/fieldset[2]/button")
