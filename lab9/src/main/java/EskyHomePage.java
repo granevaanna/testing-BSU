@@ -24,7 +24,7 @@ public class EskyHomePage {
     @FindBy(xpath = "//*[@id='departureDateRoundtrip0']")
     private WebElement departureDateInput;
 
-    @FindBy(xpath = "//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[1]/a")
+    @FindBy(xpath = "//*[@id='ui-datepicker-div']")
     private WebElement departureDateButton;
 
     @FindBy(xpath = "//*[@id='departureDateRoundtrip1']")
