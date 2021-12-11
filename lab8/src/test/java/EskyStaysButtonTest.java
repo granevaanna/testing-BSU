@@ -1,19 +1,12 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.File;
-
-public class SkyscannerHotelButtonTest {
+public class EskyStaysButtonTest {
     private WebDriver driver;
 
     @BeforeTest (alwaysRun = true)
@@ -25,11 +18,11 @@ public class SkyscannerHotelButtonTest {
 
     @Test
     public void goToTheHotelPage() throws InterruptedException {
-        SkyscannerHomePage homePage = new SkyscannerHomePage(driver);
+        EskyHomePage homePage = new EskyHomePage(driver);
         homePage.openHomePage();
-        homePage.openHotelPage();
+        homePage.openStaysPage();
 
-        SkyscannerHotelPage hotelPage = new SkyscannerHotelPage(driver);
+        EskyHotelPage hotelPage = new EskyHotelPage(driver);
         hotelPage.openHotelPage();
 
         Assert.assertEquals(homePage.getCurrentUrl(), hotelPage.getCurrentUrl());
