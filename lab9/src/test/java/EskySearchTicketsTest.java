@@ -18,7 +18,7 @@ public class EskySearchTicketsTest {
     }
 
     @Test
-    public void goToTheHotelPage() throws InterruptedException {
+    public void searchTicketsTest() throws InterruptedException {
         EskyHomePage homePage = new EskyHomePage(driver);
         homePage.openHomePage();
         homePage.inputPlaceOfDeparture("London - All Airports, England, United Kingdom (LON)");
