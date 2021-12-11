@@ -12,9 +12,10 @@ public class EskySearchTicketsTest {
 
     @BeforeTest (alwaysRun = true)
     public void browserSetup(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
-        driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
+//        driver = new ChromeDriver(options);
+        driver = new SafariDriver();
     }
 
     @Test
@@ -23,9 +24,9 @@ public class EskySearchTicketsTest {
         homePage.openHomePage();
         homePage.inputPlaceOfDeparture("London - All Airports, England, United Kingdom (LON)");
         homePage.inputPlaceOfArrival("New York - All Airports, New York, United States of America (NYC)");
-//        homePage.clickToInputDepartureDate();
+        homePage.clickToInputDepartureDate();
         homePage.selectDepartureDate();
-//        homePage.clickToInputrReturnDate();
+        homePage.clickToInputReturnDate();
         homePage.selectReturnDate();
         homePage.clickOnSearchButton();
 

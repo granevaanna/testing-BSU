@@ -22,21 +22,20 @@ public class EskyHomePage {
     private WebElement flyingToInput;
 
     @FindBy(xpath = "//*[@id='departureDateRoundtrip0']")
-    private WebElement departureDateInput;
+    private WebElement departureCalendarButton;
 
-    @FindBy(xpath = "//*[@id='toolTip-17373228027539223']")
+    @FindBy(xpath = "//*[@id='ui-datepicker-div']/table/tbody/tr[4]/td[4]/a")
     private WebElement departureDateButton;
 
 
     @FindBy(xpath = "//*[@id='departureDateRoundtrip1']")
-    private WebElement returnDateInput;
+    private WebElement flyingCalendarButton;
 
-    @FindBy(xpath = "//*[@id='toolTip-5441426217774767']")
-    private WebElement returnDateButton;
+    @FindBy(xpath = "//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[5]")
+    private WebElement flyingDateButton;
 
     @FindBy(xpath = "//*[@id='multiQsfFlights']/form/section[2]/div[2]/fieldset[2]/button")
     private WebElement searchButton;
-
 
     public EskyHomePage(WebDriver driver) {
         this.driver = driver;
@@ -63,7 +62,7 @@ public class EskyHomePage {
     }
 
     public EskyHomePage clickToInputDepartureDate() {
-        departureDateInput.click();
+        departureCalendarButton.click();
         return this;
     }
 
@@ -72,13 +71,13 @@ public class EskyHomePage {
         return this;
     }
 
-    public EskyHomePage clickToInputrReturnDate() {
-        returnDateInput.click();
+    public EskyHomePage clickToInputReturnDate() {
+        flyingCalendarButton.click();
         return this;
     }
 
     public EskyHomePage selectReturnDate() {
-        returnDateButton.click();
+        flyingDateButton.click();
         return this;
     }
     public EskyHomePage clickOnSearchButton() {
