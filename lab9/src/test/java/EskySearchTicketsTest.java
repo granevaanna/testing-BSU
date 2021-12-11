@@ -12,10 +12,9 @@ public class EskySearchTicketsTest {
 
     @BeforeTest (alwaysRun = true)
     public void browserSetup(){
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
-//        driver = new ChromeDriver(options);
-        driver = new SafariDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
+        driver = new ChromeDriver(options);
     }
 
     @Test
