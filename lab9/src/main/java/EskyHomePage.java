@@ -52,10 +52,6 @@ public class EskyHomePage {
         return this;
     }
 
-//    public WebElement findByLocator(By locator) {
-//        return new WebDriverWait(driver, 100).until(ExpectedConditions.presenceOfElementLocated(locator));
-//    }
-
     public EskyHomePage inputPlaceOfDeparture(String placeOfDeparture) {
         DepartFromInput.sendKeys(placeOfDeparture);
         return this;

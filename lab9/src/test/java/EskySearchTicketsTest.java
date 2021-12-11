@@ -23,10 +23,10 @@ public class EskySearchTicketsTest {
         homePage.openHomePage();
         homePage.inputPlaceOfDeparture("London - All Airports, England, United Kingdom (LON)");
         homePage.inputPlaceOfArrival("New York - All Airports, New York, United States of America (NYC)");
-        homePage.clickToInputDepartureDate();
-//        homePage.selectDepartureDate();
-        homePage.clickToInputrReturnDate();
-//        homePage.selectReturnDate();
+//        homePage.clickToInputDepartureDate();
+        homePage.selectDepartureDate();
+//        homePage.clickToInputrReturnDate();
+        homePage.selectReturnDate();
         homePage.clickOnSearchButton();
 
         EskyHotelPage hotelPage = new EskyHotelPage(driver);
