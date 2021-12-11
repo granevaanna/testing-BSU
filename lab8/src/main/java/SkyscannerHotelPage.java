@@ -1,9 +1,10 @@
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class SkyscannerHotelPage {
     private WebDriver driver;
-    private String HOTELPAGE_URL = "https://www.skyscanner.ru/hotels";
+    private String HOTELPAGE_URL = "https://www.esky.com/stays/";
 
     public SkyscannerHotelPage(WebDriver driver) {
         this.driver = driver;
