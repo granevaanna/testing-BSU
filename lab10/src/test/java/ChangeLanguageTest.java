@@ -1,17 +1,20 @@
+import Page.ChangeLanguage.ChangeLanguageHomePage;
+import Page.ChangeLanguage.ChangeLanguageResultPage;
 import Page.EskySearchTransfers.EskyTransfersHomePage;
 import Page.EskySearchTransfers.EskyTransfersResultPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class EskySearchTransfersTest {
+public class ChangeLanguageTest {
     private WebDriver driver;
 
-    @BeforeTest (alwaysRun = true)
+    @BeforeTest(alwaysRun = true)
     public void browserSetup(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
@@ -19,17 +22,16 @@ public class EskySearchTransfersTest {
     }
 
     @Test
-    public void searchTransfersTest() throws InterruptedException {
-        EskyTransfersHomePage homePage = new EskyTransfersHomePage(driver);
+    public void changeLanguageTest() throws InterruptedException {
+        ChangeLanguageHomePage homePage = new ChangeLanguageHomePage(driver);
         homePage.openHomePage();
-        homePage.inputFirst("London, UK");
-        homePage.inputSecond("Newark, UK");
-        homePage.clickOnSearchButton();
+        homePage.clickOnLanguageButton();
+        homePage.selectLanguageButton();
 
-        EskyTransfersResultPage transfersPage = new EskyTransfersResultPage(driver);
-        transfersPage.openResultPage();
+        ChangeLanguageResultPage resultPage = new ChangeLanguageResultPage(driver);
+        resultPage.openNewLanguagePage();
 
-        Assert.assertEquals(homePage.getCurrentUrl(), transfersPage.getCurrentUrl());
+        Assert.assertEquals(homePage.getCurrentUrl(), resultPage.getCurrentUrl());
     }
 
     @AfterMethod(alwaysRun = true)
