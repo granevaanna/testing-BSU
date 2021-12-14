@@ -12,7 +12,7 @@ public class EskyTransfersResultPage {
         PageFactory.initElements(driver, this);
     }
 
-    public EskyTransfersResultPage openHotelPage() {
+    public EskyTransfersResultPage openStaysPage() {
         driver.get(RESULTPAGE_URL);
         return this;
     }

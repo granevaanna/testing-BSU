@@ -21,13 +21,13 @@ public class EskySearchTransfersTest {
     @Test
     public void searchTransfersTest() throws InterruptedException {
         EskyTransfersHomePage homePage = new EskyTransfersHomePage(driver);
-        homePage.openHomePage();
-        homePage.inputFirst("London, UK");
-        homePage.inputSecond("Newark, UK");
+        homePage.openTransfersHomePage();
+        homePage.inputStartAddress("London, UK");
+        homePage.inputEndAddress("Newark, UK");
         homePage.clickOnSearchButton();
 
         EskyTransfersResultPage transfersPage = new EskyTransfersResultPage(driver);
-        transfersPage.openHotelPage();
+        transfersPage.openStaysPage();
 
         Assert.assertEquals(homePage.getCurrentUrl(), transfersPage.getCurrentUrl());
     }
