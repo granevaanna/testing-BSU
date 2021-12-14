@@ -17,7 +17,7 @@ public class EskyStaysButtonTest {
     }
 
     @Test
-    public void goToTheHotelPage() throws InterruptedException {
+    public void goToTheStaysPage() throws InterruptedException {
         EskyHomePage homePage = new EskyHomePage(driver);
         homePage.openHomePage();
         homePage.openStaysPage();
