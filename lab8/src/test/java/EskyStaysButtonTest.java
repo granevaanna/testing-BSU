@@ -22,7 +22,7 @@ public class EskyStaysButtonTest {
         homePage.openHomePage();
         homePage.openStaysPage();
 
-        EskyHotelPage hotelPage = new EskyHotelPage(driver);
+        EskyStaysPage hotelPage = new EskyStaysPage(driver);
         hotelPage.openHotelPage();
 
         Assert.assertEquals(homePage.getCurrentUrl(), hotelPage.getCurrentUrl());

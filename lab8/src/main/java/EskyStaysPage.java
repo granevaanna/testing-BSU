@@ -1,17 +1,17 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class EskyHotelPage {
+public class EskyStaysPage {
     private WebDriver driver;
-    private String HOTELPAGE_URL = "https://www.esky.com/stays/";
+    private String STAYSPAGE_URL = "https://www.esky.com/stays/";
 
-    public EskyHotelPage(WebDriver driver) {
+    public EskyStaysPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public EskyHotelPage openHotelPage() {
-        driver.get(HOTELPAGE_URL);
+    public EskyStaysPage openHotelPage() {
+        driver.get(STAYSPAGE_URL);
         return this;
     }
 
