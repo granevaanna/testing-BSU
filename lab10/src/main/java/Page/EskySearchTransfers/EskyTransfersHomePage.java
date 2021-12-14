@@ -37,12 +37,12 @@ public class EskyTransfersHomePage {
         return this;
     }
 
-    public EskyTransfersHomePage inputFirst(String placeOfDeparture) {
+    public EskyTransfersHomePage inputStartAddress(String placeOfDeparture) {
         startAddressInput.sendKeys(placeOfDeparture);
         return this;
     }
 
-    public EskyTransfersHomePage inputSecond(String placeOfDeparture) {
+    public EskyTransfersHomePage inputEndAddress(String placeOfDeparture) {
         endAddressInput.sendKeys(placeOfDeparture);
         return this;
     }

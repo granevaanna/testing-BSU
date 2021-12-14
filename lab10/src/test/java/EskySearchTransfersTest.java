@@ -22,8 +22,8 @@ public class EskySearchTransfersTest {
     public void searchTransfersTest() throws InterruptedException {
         EskyTransfersHomePage homePage = new EskyTransfersHomePage(driver);
         homePage.openHomePage();
-        homePage.inputFirst("London, UK");
-        homePage.inputSecond("Newark, UK");
+        homePage.inputStartAddress("London, UK");
+        homePage.inputEndAddress("Newark, UK");
         homePage.clickOnSearchButton();
 
         EskyTransfersResultPage transfersPage = new EskyTransfersResultPage(driver);
