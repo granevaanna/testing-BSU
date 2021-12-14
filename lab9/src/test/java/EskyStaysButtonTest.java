@@ -24,10 +24,10 @@ public class EskyStaysButtonTest {
         homePage.openHomePage();
         homePage.openStaysPage();
 
-        EskyStaysPage hotelPage = new EskyStaysPage(driver);
-        hotelPage.openHotelPage();
+        EskyStaysPage staysPage = new EskyStaysPage(driver);
+        staysPage.openStaysPage();
 
-        Assert.assertEquals(homePage.getCurrentUrl(), hotelPage.getCurrentUrl());
+        Assert.assertEquals(homePage.getCurrentUrl(), staysPage.getCurrentUrl());
     }
 
     @AfterMethod(alwaysRun = true)

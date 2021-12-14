@@ -26,10 +26,10 @@ public class EskySearchTransfersTest {
         homePage.inputSecond("Newark, UK");
         homePage.clickOnSearchButton();
 
-        EskyTransfersResultPage hotelPage = new EskyTransfersResultPage(driver);
-        hotelPage.openHotelPage();
+        EskyTransfersResultPage transfersPage = new EskyTransfersResultPage(driver);
+        transfersPage.openHotelPage();
 
-        Assert.assertEquals(homePage.getCurrentUrl(), hotelPage.getCurrentUrl());
+        Assert.assertEquals(homePage.getCurrentUrl(), transfersPage.getCurrentUrl());
     }
 
     @AfterMethod(alwaysRun = true)
