@@ -6,7 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class EskySearchTicketsTest {
+public class EskySearchTransfersTest {
     private WebDriver driver;
 
     @BeforeTest (alwaysRun = true)
@@ -17,7 +17,7 @@ public class EskySearchTicketsTest {
     }
 
     @Test
-    public void searchTicketsTest() throws InterruptedException {
+    public void searchTransfersTest() throws InterruptedException {
         EskyTransfersHomePage homePage = new EskyTransfersHomePage(driver);
         homePage.openHomePage();
         homePage.inputFirst("London, UK");
