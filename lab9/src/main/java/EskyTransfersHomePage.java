@@ -12,11 +12,11 @@ public class EskyTransfersHomePage {
     private WebDriver driver;
     private String TRANSFERSPAGE_URL = "https://esky.mozio.com/en-us/";
 
-    @FindBy(xpath = "//*[@id='start_address']")
-    private WebElement firstInput;
+    @FindBy(xpath = "//input[@id='start_address']")
+    private WebElement startAddressInput;
 
-    @FindBy(xpath = "//*[@id='end_address']")
-    private WebElement secondInput;
+    @FindBy(xpath = "//input[@id='end_address']")
+    private WebElement endAddressInput;
 
     @FindBy(xpath = "//*[@id='container']")
     private WebElement searchButton;
@@ -36,12 +36,12 @@ public class EskyTransfersHomePage {
     }
 
     public EskyTransfersHomePage inputFirst(String placeOfDeparture) {
-        firstInput.sendKeys(placeOfDeparture);
+        startAddressInput.sendKeys(placeOfDeparture);
         return this;
     }
 
     public EskyTransfersHomePage inputSecond(String placeOfDeparture) {
-        secondInput.sendKeys(placeOfDeparture);
+        endAddressInput.sendKeys(placeOfDeparture);
         return this;
     }
 
