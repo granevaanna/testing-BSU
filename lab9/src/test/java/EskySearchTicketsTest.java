@@ -1,7 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
@@ -19,13 +18,13 @@ public class EskySearchTicketsTest {
 
     @Test
     public void searchTicketsTest() throws InterruptedException {
-        EskyHomePage homePage = new EskyHomePage(driver);
+        EskyTransfersHomePage homePage = new EskyTransfersHomePage(driver);
         homePage.openHomePage();
         homePage.inputFirst("London, UK");
         homePage.inputSecond("Newark, UK");
         homePage.clickOnSearchButton();
 
-        EskyResultPage hotelPage = new EskyResultPage(driver);
+        EskyTransfersResultPage hotelPage = new EskyTransfersResultPage(driver);
         hotelPage.openHotelPage();
 
         Assert.assertEquals(homePage.getCurrentUrl(), hotelPage.getCurrentUrl());
