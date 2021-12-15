@@ -24,10 +24,10 @@ public class EskySearchTransfersTest {
         homePage.openTransfersHomePage();
         homePage.inputStartAddress("London, UK");
         homePage.inputEndAddress("Newark, UK");
-        homePage.clickOnSearchButton();
+        homePage.searchTransfers();
 
         EskyTransfersResultPage transfersPage = new EskyTransfersResultPage(driver);
-        transfersPage.openStaysPage();
+        transfersPage.openResultPage();
 
         Assert.assertEquals(homePage.getCurrentUrl(), transfersPage.getCurrentUrl());
     }

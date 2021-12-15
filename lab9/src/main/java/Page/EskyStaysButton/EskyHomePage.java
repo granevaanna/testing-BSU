@@ -15,7 +15,7 @@ public class EskyHomePage {
     private String HOMEPAGE_URL = "https://www.esky.com";
 
     @FindBy(xpath = "//*[@id='multiQsf']//child::div[@class='mq-tab'][1]//child::a")
-    private WebElement hotelButton;
+    private WebElement staysButton;
 
     public EskyHomePage(WebDriver driver) {
         this.driver = driver;
@@ -32,7 +32,7 @@ public class EskyHomePage {
     }
 
     public EskyHomePage openStaysPage(){
-        hotelButton.click();
+        staysButton.click();
         return this;
     }
 

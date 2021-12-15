@@ -28,7 +28,7 @@ public class EskyTransfersHomePage {
         PageFactory.initElements(driver, this);
     }
 
-    public EskyTransfersHomePage openHomePage() {
+    public EskyTransfersHomePage openTransfersHomePage() {
         driver.get(TRANSFERSPAGE_URL);
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30))
@@ -47,7 +47,7 @@ public class EskyTransfersHomePage {
         return this;
     }
 
-    public EskyTransfersHomePage clickOnSearchButton() {
+    public EskyTransfersHomePage searchTransfers() {
         searchButton.click();
         return this;
     }

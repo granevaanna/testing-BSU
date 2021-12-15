@@ -12,7 +12,7 @@ public class EskyTransfersResultPage {
         PageFactory.initElements(driver, this);
     }
 
-    public EskyTransfersResultPage openStaysPage() {
+    public EskyTransfersResultPage openResultPage() {
         driver.get(RESULTPAGE_URL);
         return this;
     }

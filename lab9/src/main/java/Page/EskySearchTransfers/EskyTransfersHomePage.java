@@ -47,7 +47,7 @@ public class EskyTransfersHomePage {
         return this;
     }
 
-    public EskyTransfersHomePage clickOnSearchButton() {
+    public EskyTransfersHomePage searchTransfers() {
         searchButton.click();
         return this;
     }
