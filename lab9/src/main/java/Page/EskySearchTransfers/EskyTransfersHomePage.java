@@ -1,5 +1,6 @@
 package Page.EskySearchTransfers;
 
+import Page.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,9 +11,9 @@ import org.openqa.selenium.support.ui.Wait;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
-public class EskyTransfersHomePage {
+public class EskyTransfersHomePage extends AbstractPage {
     private WebDriver driver;
-    private String TRANSFERSPAGE_URL = "https://esky.mozio.com/en-us/";
+    private static final String TRANSFERSPAGE_URL = "https://esky.mozio.com/en-us/";
 
     @FindBy(xpath = "//input[@id='start_address']")
     private WebElement startAddressInput;
@@ -24,7 +25,7 @@ public class EskyTransfersHomePage {
     private WebElement searchButton;
 
     public EskyTransfersHomePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
