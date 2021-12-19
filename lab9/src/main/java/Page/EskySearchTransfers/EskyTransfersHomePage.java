@@ -9,13 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 public class EskyTransfersHomePage extends AbstractPage {
     private static final String TRANSFERSPAGE_URL = "https://esky.mozio.com/en-us/";
 
-    @FindBy(xpath = "//*[@id='start_address']")
+    @FindBy(id = "start_address")
     private WebElement startAddressInput;
 
-    @FindBy(xpath = "//*[@id='end_address']")
+    @FindBy(id = "end_address")
     private WebElement endAddressInput;
 
-    @FindBy(xpath = "//*[@id='container']")
+    @FindBy(id ="container")
     private WebElement searchButton;
 
     public EskyTransfersHomePage(WebDriver driver) {
