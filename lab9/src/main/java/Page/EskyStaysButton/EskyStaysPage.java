@@ -5,16 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class EskyStaysPage extends AbstractPage {
-    private WebDriver driver;
     private static final String STAYSPAGE_URL = "https://www.esky.com/stays/";
 
     public EskyStaysPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(this.driver, this);
     }
 
-    public EskyStaysPage openStaysPage() {
-        driver.get(STAYSPAGE_URL);
+    @Override
+    public EskyStaysPage openPage()
+    {
+        driver.navigate().to(STAYSPAGE_URL);
         return this;
     }
 

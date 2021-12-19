@@ -19,13 +19,13 @@ public class EskyStaysButtonTest {
     }
 
     @Test
-    public void goToTheStaysPage() throws InterruptedException {
+    public void goToTheStaysPage(){
         EskyHomePage homePage = new EskyHomePage(driver);
-        homePage.openHomePage();
+        homePage.openPage();
         homePage.openStaysPage();
 
         EskyStaysPage staysPage = new EskyStaysPage(driver);
-        staysPage.openStaysPage();
+        staysPage.openPage();
 
         Assert.assertEquals(homePage.getCurrentUrl(), staysPage.getCurrentUrl());
     }

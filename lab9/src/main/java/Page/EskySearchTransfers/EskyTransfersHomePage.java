@@ -5,14 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-
-import java.time.Duration;
-import java.util.NoSuchElementException;
 
 public class EskyTransfersHomePage extends AbstractPage {
-    private WebDriver driver;
     private static final String TRANSFERSPAGE_URL = "https://esky.mozio.com/en-us/";
 
     @FindBy(xpath = "//input[@id='start_address']")
@@ -26,15 +20,13 @@ public class EskyTransfersHomePage extends AbstractPage {
 
     public EskyTransfersHomePage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(this.driver, this);
     }
 
-    public EskyTransfersHomePage openTransfersHomePage() {
-        driver.get(TRANSFERSPAGE_URL);
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofMillis(500))
-                .ignoring(NoSuchElementException.class);
+    @Override
+    public EskyTransfersHomePage openPage()
+    {
+        driver.navigate().to(TRANSFERSPAGE_URL);
         return this;
     }
 
