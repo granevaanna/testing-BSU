@@ -1,39 +1,37 @@
+import Page.CheckChangeButton.CheckChangeButton;
 import Page.EskySearchTransfers.EskyTransfersHomePage;
 import Page.EskySearchTransfers.EskyTransfersResultPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import model.Location;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import service.LocationCreator;
 
-public class EskySearchTransfersTest {
-    private WebDriver driver;
-
-    @BeforeTest (alwaysRun = true)
-    public void browserSetup(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
-        driver = new ChromeDriver(options);
-    }
-
+public class EskySearchTransfersTest extends CommonConditions{
     @Test
-    public void searchTransfersTest() throws InterruptedException {
+    public void searchTransfersTest(){
+        Location location = LocationCreator.withLocationFromProperty();
         EskyTransfersHomePage homePage = new EskyTransfersHomePage(driver);
-        homePage.openTransfersHomePage();
-        homePage.inputStartAddress("London, UK");
-        homePage.inputEndAddress("Newark, UK");
+        homePage.openPage();
+        homePage.inputStartAddress(location.getStartAddress());
+        homePage.inputEndAddress(location.getEndAddress());
         homePage.searchTransfers();
 
         EskyTransfersResultPage transfersPage = new EskyTransfersResultPage(driver);
-        transfersPage.openResultPage();
+        transfersPage.openPage();
 
         Assert.assertEquals(homePage.getCurrentUrl(), transfersPage.getCurrentUrl());
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void closeBrowser(){
-        driver.quit();
+    @Test
+    public void checkChangeButtonTest() {
+        Location location = LocationCreator.withLocationFromProperty();
+        CheckChangeButton homePage = new CheckChangeButton(driver);
+        homePage.openPage();
+        homePage.inputStartAddress(location.getStartAddress());
+        homePage.inputEndAddress(location.getEndAddress());
+        String startText = homePage.getTextFromStartAddressInput();
+        homePage.clickOnChangeButton();
+
+        Assert.assertEquals(startText, homePage.getTextFromEndAddressInput());
     }
 }

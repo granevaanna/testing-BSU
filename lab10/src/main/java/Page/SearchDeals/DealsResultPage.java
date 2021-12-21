@@ -1,21 +1,21 @@
-package Page.EskyStaysButton;
+package Page.SearchDeals;
 
 import Page.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class EskyStaysPage extends AbstractPage {
-    private static final String STAYSPAGE_URL = "https://www.esky.com/stays/";
+public class DealsResultPage extends AbstractPage {
+    private String RESULTPAGE_URL = "https://www.esky.com/deals/110108/ALB-PGD-G4";
 
-    public EskyStaysPage(WebDriver driver) {
+    public DealsResultPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
     }
 
     @Override
-    public EskyStaysPage openPage()
+    public DealsResultPage openPage()
     {
-        driver.navigate().to(STAYSPAGE_URL);
+        driver.navigate().to(RESULTPAGE_URL);
         return this;
     }
 

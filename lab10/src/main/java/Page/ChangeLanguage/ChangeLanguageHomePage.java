@@ -1,38 +1,33 @@
 package Page.ChangeLanguage;
 
-import Page.EskyStaysButton.EskyHomePage;
+import Page.AbstractPage;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+import org.testng.log4testng.Logger;
 
-import java.time.Duration;
-import java.util.NoSuchElementException;
+public class ChangeLanguageHomePage extends AbstractPage {
 
-public class ChangeLanguageHomePage {
-    private WebDriver driver;
-    private String STARTPAGE_URL = "https://esky.mozio.com/en-us/";
+    private String HOMEPAGE_URL = "https://esky.mozio.com/en-us/";
 
-    @FindBy(xpath = "//*[@id='container']/div[1]/div/div[1]/div[1]/div/div[2]/header/nav/div/div/div/div/ul/ul[2]/div[1]/div/div/div/li/a")
+    @FindBy(xpath = "//a[text()='English']")
     private WebElement languageButton;
 
-
-    @FindBy(xpath = "//*[@id='container']/div[1]/div/div[1]/div[1]/div/div[2]/header/nav/div/div/div/div/ul/ul[2]/div[1]/div/div[2]/div[2]/div[2]/div[2]/div")
+    @FindBy(xpath = "//div[text()='Deutsch']")
     private WebElement selectLanguageButton;
 
     public ChangeLanguageHomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
+        PageFactory.initElements(this.driver, this);
     }
 
-    public ChangeLanguageHomePage openHomePage() {
-        driver.get(STARTPAGE_URL);
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofMillis(500))
-                .ignoring(NoSuchElementException.class);
+    @Override
+    public ChangeLanguageHomePage openPage()
+    {
+        driver.navigate().to(HOMEPAGE_URL);
         return this;
     }
 
