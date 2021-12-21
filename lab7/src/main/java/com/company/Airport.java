@@ -1,13 +1,16 @@
-import planes.ExperimentalPlane;
-import models.MilitaryType;
-import planes.MilitaryPlane;
-import planes.PassengerPlane;
-import planes.Plane;
+package com.company;
 
+import com.company.model.ExperimentalPlane;
+import com.company.model.classification.MilitaryType;
+import com.company.model.MilitaryPlane;
+import com.company.model.PassengerPlane;
+import com.company.model.Plane;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Airport {
+
     private List<? extends Plane> planes;
 
     public Airport(List<? extends Plane> planes) {
@@ -26,12 +29,6 @@ public class Airport {
                 .filter(plane -> plane instanceof MilitaryPlane)
                 .map(plane -> (MilitaryPlane) plane)
                 .collect(Collectors.toList());
-    }
-
-    public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
-        return getPassengerPlanes().stream()
-                .max(Comparator.comparingInt(PassengerPlane::getPassengersCapacity))
-                .orElse(getPassengerPlanes().get(0));
     }
 
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
@@ -53,18 +50,28 @@ public class Airport {
                 .collect(Collectors.toList());
     }
 
-    public Airport sortByMaxDistance() {
-        planes.sort(Comparator.comparingInt(Plane::getMaxFlightDistance));
-        return this;
+    public List<Plane> sortByMaxDistance() {
+        return planes.stream()
+                .sorted(Comparator.comparing(Plane::getMaxFlightDistance))
+                .collect(Collectors.toList());
     }
 
-    public Airport sortByMaxSpeed() {
-        planes.sort(Comparator.comparingInt(Plane::getMaxSpeed));
-        return this;
+    public List<Plane> sortByMaxSpeed() {
+        return planes.stream()
+                .sorted(Comparator.comparing(Plane::getMaxSpeed))
+                .collect(Collectors.toList());
     }
 
-    public void sortByMaxLoadCapacity() {
-        planes.sort(Comparator.comparingInt(Plane::getMaxLoadCapacity));
+    public List<Plane> sortByMaxLoadCapacity() {
+        return planes.stream()
+                .sorted(Comparator.comparing(Plane::getMaxLoadCapacity))
+                .collect(Collectors.toList());
+    }
+
+    public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
+        return getPassengerPlanes().stream()
+                .max(Comparator.comparing(PassengerPlane::getPassengersCapacity))
+                .orElse(null);
     }
 
     public List<? extends Plane> getPlanes() {
@@ -73,8 +80,9 @@ public class Airport {
 
     @Override
     public String toString() {
-        return "Airport{" +
-                "Planes=" + planes.toString() +
-                '}';
+        final StringBuilder stringBuilder = new StringBuilder("Airport{");
+        stringBuilder.append("planes=").append(planes);
+        stringBuilder.append('}');
+        return stringBuilder.toString();
     }
 }

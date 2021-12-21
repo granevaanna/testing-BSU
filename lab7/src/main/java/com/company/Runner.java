@@ -1,8 +1,9 @@
-import models.MilitaryType;
-import planes.MilitaryPlane;
-import planes.PassengerPlane;
-import planes.Plane;
+package com.company;
 
+import com.company.model.classification.MilitaryType;
+import com.company.model.MilitaryPlane;
+import com.company.model.PassengerPlane;
+import com.company.model.Plane;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,12 +29,8 @@ public class Runner {
         Airport airport = new Airport(planes);
         Airport militaryAirport = new Airport(airport.getMilitaryPlanes());
         Airport passengerAirport = new Airport(airport.getPassengerPlanes());
-        System.out.println("Military airport sorted by max distance: " + militaryAirport
-                .sortByMaxDistance()
-                .toString());
-        System.out.println("Passenger airport sorted by max speed: " + passengerAirport
-                .sortByMaxSpeed()
-                .toString());
+        System.out.println("Military airport sorted by max distance: " + militaryAirport.sortByMaxDistance());
+        System.out.println("Passenger airport sorted by max speed: " + passengerAirport.sortByMaxSpeed());
 
         System.out.println("Plane with max passenger capacity: " +
                 passengerAirport.getPassengerPlaneWithMaxPassengersCapacity());
